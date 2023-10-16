@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Verificação de Pode Fazer</title>
+</head>
+<body>
+    <h1>Verificação de Pode Fazer</h1>
+
+    <form id="podeFazerForm">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nomeInput" required><br>
+
+        <label for="banco">Banco:</label>
+        <input type="text" id="bancoInput" required><br>
+
+        <label for="estado">Estado:</label>
+        <input type="text" id="estadoInput" required><br>
+
+        <label for="idade">Idade:</label>
+        <input type="number" id="idadeInput" required><br>
+
+        <button type="button" onclick="verificarPodeFazer()">Verificar</button>
+    </form>
+
+    <p id="resultado"></p>
+
+    <script>
+        function nome(a) {
+            if (a == "João") {
+                return "pode";
+            } else {
+                return "não pode";
+            }
+        }
+
+        function banco(a) {
+            if (a == "Banco do Brasil") {
+                return "pode";
+            } else {
+                return "não pode";
+            }
+        }
+
+        function estado(a) {
+            if (a == "São Paulo") {
+                return "pode";
+            } else {
+                return "não pode";
+            }
+        }
+
+        function idade(a) {
+            if (a => 18) {
+                return "pode";
+            } else {
+                return "não pode";
+            }
+        }
+
+        function verificarPodeFazer() {
+            const nomeInput = document.getElementById("nomeInput").value;
+            const bancoInput = document.getElementById("bancoInput").value;
+            const estadoInput = document.getElementById("estadoInput").value;
+            const idadeInput = parseInt(document.getElementById("idadeInput").value);
+
+            const resultado = podeFazer(nome(nomeInput), banco(bancoInput), estado(estadoInput), idade(idadeInput));
+            document.getElementById("resultado").textContent = resultado;
+        }
+
+        function podeFazer(nome, banco, estado, idade) {
+            if (nome == "pode" && banco == "pode" && estado == "pode" && idade == "pode") {
+                return "pode";
+            } else {
+                return "não pode";
+            }
+        }
+    </script>
+    <style>
+         body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            background-color: #007BFF;
+            color: #fff;
+            padding: 20px;
+        }
+
+        form {
+            background-color: #fff;
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #resultado {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+    </style>
+</body>
+</html>
